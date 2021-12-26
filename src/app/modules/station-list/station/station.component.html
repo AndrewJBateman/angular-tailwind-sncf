@@ -1,9 +1,10 @@
 <div
   class="
     card
-    m-2
+    my-2
     cursor-pointer
     border border-gray-400
+    bg-gray-50
     rounded-lg
     hover:shadow-md hover:border-opacity-0
     transform
@@ -17,18 +18,16 @@
       Name: {{ station.name }}
       <span
         class="
-          text-sm text-teal-800
+          text-sm text-blue-900
           font-mono
           bg-teal-100
           inline
           rounded-full
-          px-2
-          align-top
+          p-2
           float-right
           animate-pulse
         "
-        >Label: {{ station.label }}</span
-      >
+      >{{station.stop_area.commercial_modes[0].name}}</span>
     </h2>
     <p
       class="
@@ -38,9 +37,6 @@
         transition-all
         duration-200
       "
-    >
-      <span *ngIf="station.city !== undefined">{{ station.city }} - </span
-      ><span *ngIf="station.zipCode !== undefined">{{ station.zipCode }}</span>
-    </p>
+    ></p>
   </div>
 </div>
