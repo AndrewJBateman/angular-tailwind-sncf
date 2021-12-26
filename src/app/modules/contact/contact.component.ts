@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { User } from 'src/app/models/user';
-import { GithubService } from '../../services/github.service';
+import { User } from './models/user';
+import { GithubService } from './services/github.service';
 
 @Component({
   selector: 'app-contact',
