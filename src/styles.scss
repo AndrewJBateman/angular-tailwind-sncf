@@ -3,6 +3,46 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-.btn {
-  @apply py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-400
+@layer components {
+  main {
+    padding-top: 0rem;
+    padding-left: 0 !important;
+  }
+
+  nav {
+    border-bottom: 4px solid #000c66;
+    background: #f5f3f3;
+    height: 4rem;
+  }
+
+  .nav-link {
+    color: #000c66 !important;
+    @apply mx-2;
+  }
+
+  .nav-right {
+    @apply mx-4 rounded hover:bg-gray-50;
+  }
+
+  .nav-link-active {
+    color: #0000ff !important;
+  }
+
+  .renfe-purple {
+    background-color: #a1006b;
+  }
+
+  .station-card {
+    background-color: #f5f3f3;
+    @apply rounded-lg shadow-lg
+  }
+
+  .search-form {
+    background-color: #f5f3f3;
+    @apply rounded-lg shadow-lg
+  }
+
+  .input-form {
+    background-color: #f5f3f3;
+  }
 }
