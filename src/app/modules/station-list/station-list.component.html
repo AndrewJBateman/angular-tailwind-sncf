@@ -7,7 +7,7 @@
 </head>
 
 <div class="min-h-screen min-w-screen renfe-purple">
-  <div class="w-full px-4 py-4">
+  <div class="w-full h-full px-4 py-4">
     <!--search bar-->
     <form
       #stationSearch="ngForm"
@@ -23,7 +23,7 @@
             max-w-xs
             mr-0
             text-lg text-gray-800
-            bg-white
+            station-card
             rounded-lg
           "
         >
@@ -44,7 +44,7 @@
               required
               ngModel
               type="text"
-              placeholder="tapez le ville"
+              placeholder="nom de la station"
               aria-label="Enter place name"
               minlength="3"
               maxlength="20"
@@ -69,9 +69,14 @@
       </div>
     </form>
 
-    <!--display results-->
+    <!--display search results-->
     <span *ngFor="let station of stations | async; let i = index">
       <app-station [station]="station"> </app-station>
+    </span>
+
+    <!--display stations on a map-->
+    <span>
+      <app-map>test</app-map>
     </span>
   </div>
 </div>
