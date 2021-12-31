@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
 @layer components {
   main {
@@ -34,12 +34,13 @@
 
   .station-card {
     background-color: #f5f3f3;
-    @apply rounded-lg shadow-lg
+    @apply rounded-lg shadow-lg relative
+    mr-0 text-lg text-gray-800;
   }
 
   .search-form {
     background-color: #f5f3f3;
-    @apply rounded-lg shadow-lg
+    @apply rounded-lg shadow-lg;
   }
 
   .input-form {
