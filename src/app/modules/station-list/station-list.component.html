@@ -1,7 +1,7 @@
 <head>
   <meta
     name="description"
-    content="Station list page shows list of stations matching user search text"
+    content="Station list page shows list of stations + map location matching user search text"
   />
   X-Frame-Options="SAMEORIGIN"
 </head>
@@ -12,26 +12,21 @@
     <form
       #stationSearch="ngForm"
       method="POST"
-      (ngSubmit)="onSubmitForm(stationSearch); stationSearch.reset()"
-      background-color:
-      #f5f3f3;
+      (ngSubmit)="onSubmitStationSearch()"
+      class="search-form"
     >
       <div class="mb-2 mr-0 rounded-lg input-group">
         <div
           class="
-            relative
-            max-w-xs
-            mr-0
-            text-lg text-gray-800
+
             station-card
-            rounded-lg
           "
         >
           <div class="py-2 rounded-lg search-bar">
             <input
-              id="search"
-              name="search"
-              #name="ngModel"
+              id="stationName"
+              name="stationName"
+              [(ngModel)]="stationName"
               class="
                 pl-2
                 leading-tight
@@ -42,18 +37,15 @@
                 focus:
               "
               required
-              ngModel
               type="text"
               placeholder="nom de la station"
               aria-label="Enter place name"
               minlength="3"
               maxlength="20"
-              pattern="[0-9]*"
             />
             <button
               aria-label="renfe station search button"
               type="submit"
-              [disabled]="stationSearch.invalid"
               class="absolute top-0 right-0 mt-3 mr-4"
             >
               <img

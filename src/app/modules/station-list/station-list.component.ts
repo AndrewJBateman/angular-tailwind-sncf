@@ -14,35 +14,20 @@ export class StationListComponent implements OnInit {
   formSubmitted = false;
   name = environment.application.name;
   stations: any;
+
+  // search items
+  stationName = '';
   constructor(private stationService: StationService) {}
 
-  ngOnInit(): void {
-    this.stationService.loadStationsLike('Toulouse', 5).subscribe((data) => {
-      console.log('data.places', data.places);
-    });
-    this.stations = this.stationService
-      .loadStationsLike('Toulouse', 5)
-      .pipe(map((data) => data.places));
-  }
+  ngOnInit(): void {}
 
-  onSubmitForm(stationSearch: NgForm): void {
-    this.onSearchData(stationSearch.value.search);
-    this.formSubmitted = true;
-  }
-
-  onSearchData(postCode: string): void {
-    // this.ratpService.getRatpData(postCode).subscribe((data: RatpResponse) => {
-    //   this.ratpData = data.records;
-    //   this.initialState = false;
-    //   if (this.ratpData.length > 0) {
-    //     this.dataToShow = true;
-    //     this.postalCode = this.ratpData[0].fields.code_postal;
-    //     this.ville = this.ratpData[0].fields.ville;
-    //     this.dataLength = this.ratpData.length;
-    //     this.date = this.ratpData[0].record_timestamp;
-    //   } else {
-    //     this.dataToShow = false;
-    //   }
-    // });
+  // search for stations matching user search input
+  // observable displayed in template using Angular async pipe
+  onSubmitStationSearch(): void {
+    if (this.stationName) {
+      this.stations = this.stationService
+        .apiStationSearch(this.stationName, 5)
+        .pipe(map((data) => data.places));
+    }
   }
 }

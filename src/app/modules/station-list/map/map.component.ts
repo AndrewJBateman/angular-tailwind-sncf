@@ -9,19 +9,16 @@ import { Icon } from 'leaflet';
 })
 export class MapComponent implements AfterViewInit {
   public map: any;
+  markers: Array<any> = [];
 
   private initMap(): void {
     this.map = L.map('map', {
       center: [47.0833, 2.4],
       zoom: 6,
     });
-    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 3,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    });
-
-    tiles.addTo(this.map);
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: 'Map of Stations',
+    }).addTo(this.map);
   }
 
   constructor() {}
