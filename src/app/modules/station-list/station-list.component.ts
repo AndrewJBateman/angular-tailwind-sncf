@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 
 import { environment } from '../../../environments/environment';
 import { StationService } from './services/station.service';
@@ -27,7 +27,10 @@ export class StationListComponent implements OnInit {
     if (this.stationName) {
       this.stations = this.stationService
         .apiStationSearch(this.stationName, 5)
-        .pipe(map((data) => data.places));
+        .pipe(
+          tap((data) => console.log('data: ', data.places)),
+          map((data) => data.places)
+        );
     }
   }
 }

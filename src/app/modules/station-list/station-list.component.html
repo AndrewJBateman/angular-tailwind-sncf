@@ -67,8 +67,8 @@
     </span>
 
     <!--display stations on a map-->
-    <span>
-      <app-map>test</app-map>
+    <span *ngFor="let station of stations | async; let i = index">
+      <app-map [station]="station"></app-map>
     </span>
   </div>
 </div>
