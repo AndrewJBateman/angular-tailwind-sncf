@@ -1,6 +1,6 @@
 # :zap: Angular Tailwind SNCF
 
-* Angular app using [Tailwindcss](https://developers.google.com/chart/) components to display mobility data from the [Navitia API](http://doc.navitia.io/#getting-started)
+* Angular app using [Tailwindcss](https://developers.google.com/chart/) components to display mobility data from the [Navitia API](http://doc.navitia.io/#getting-started) with i18n language selection
 * **Note:** to open web links in a new window use: _ctrl+click on link_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/angular-tailwind-sncf?style=plastic)
@@ -26,11 +26,12 @@
 
 ## :books: General info
 
+* [Transloco](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular used to enable user to switch between English, Spanish and French
 * About and Contact pages give more information on app using Tailwind CSS cards
 * To build for production Tailwind’s purge option is used to tree-shake unused styles and optimize final build size.
 * [rxjs take(1) operater](https://advancedweb.hu/rxjs-the-differences-between-first-take-1-and-single/) used to take first element from the Unsplash & Github observable streams then close them, so unsubscribing is not necessary.
 * The Github API does not require an API key for a basic user profile search.
-* The Navitia API does require an API key
+* The Navitia API does require an API key. It is a HATEOAS API that returns JSON formated results.
 
 ## :camera: Screenshots
 
@@ -49,6 +50,8 @@
 * [Server-side rendering (SSR) with Angular Universal v12](https://angular.io/guide/universal) to render app on an express.js server
 * [Angular async pipes](https://angular.io/api/common/AsyncPipe) used with asynchronous Observable objects
 * [Reactive Extensions Library for Javascript rxjs v7](https://rxjs.dev/)
+* [Leaflet v1](https://leafletjs.com/) open-source JavaScript library for mobile-friendly interactive maps
+* [@ngneat/transloco v3](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular
 * [Tailwindcss v3](https://tailwindcss.com/) CSS framework
 * [http-server](https://www.npmjs.com/package/http-server) command-line http server to view the PWA
 * [Netlify CLI](https://www.npmjs.com/package/netlify-cli) to deploy app on Netlify
@@ -88,7 +91,8 @@
 ## :clipboard: Status & To-Do List
 
 * Status: In work
-* To-Do: Complete
+* To-Do: Add language dropdown menu, pass cordinates from API search to map. Finish search, map to show places found, place select. Make it an SSR.
+* Optional: Convert to graphQL
 
 ## :clap: Inspiration
 
@@ -97,7 +101,8 @@
 * [Navitia API Getting Started](http://doc.navitia.io/#getting-started)
 * [dev.to: Setup TailwindCSS in Angular the easy way](https://dev.to/angular/setup-tailwindcss-in-angular-the-easy-way-1i5l)
 * [LogRocket: Types vs. interfaces in TypeScript](https://blog.logrocket.com/types-vs-interfaces-in-typescript/)
-* [Free svg site](https://freesvg.org/) for butterfly svg on about page
+* [Free svg site](https://freesvg.org/)
+* [Font Awesome icons](https://fontawesome.com/v6.0/icons)
 * [Stackoverflow: How to add rel=“preconnect” to tags other than link?](https://stackoverflow.com/questions/54900054/how-to-add-rel-preconnect-to-tags-other-than-link)
 
 ## :file_folder: License
