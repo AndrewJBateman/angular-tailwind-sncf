@@ -2,6 +2,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "~leaflet/dist/leaflet.css";
+@import "~leaflet.markercluster/dist/MarkerCluster.Default.css";
 
 @layer components {
   main {
@@ -28,6 +30,16 @@
     color: #0000ff !important;
   }
 
+  .nav-lang-button {
+    padding: 4px;
+    color: blue;
+  }
+
+  .active {
+    color: pink;
+    padding: 10px;
+  }
+
   .renfe-purple {
     background-color: #a1006b;
   }
@@ -47,10 +59,14 @@
     background-color: #f5f3f3;
   }
 
-  #map {
-    height: 600px;
-    width: 95%;
-    margin: 0 auto;
-    border-radius: 4% !important;
+  .title {
+    @apply text-lg font-semibold text-blue-800;
+  }
+
+  .emphasis {
+    @apply italic text-blue-800;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
