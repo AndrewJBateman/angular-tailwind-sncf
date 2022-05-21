@@ -1,35 +1,37 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { NotFoundComponent } from './modules/not-found/not-found.component';
+import { NotFoundComponent } from "./modules/common/not-found/not-found.component";
 
 const routes: Routes = [
   {
-    path: '',
+    path: "",
     loadChildren: () =>
-      import('./modules/station-list/station-list.module').then(
-        (mod) => mod.StationListModule
+      import("./modules/application/station-list/station-list.module").then(
+        mod => mod.StationListModule,
       ),
   },
   {
-    path: 'about',
+    path: "about",
     loadChildren: () =>
-      import('./modules/about/about.module').then((mod) => mod.AboutModule),
-  },
-  {
-    path: 'contact',
-    loadChildren: () =>
-      import('./modules/contact/contact.module').then(
-        (mod) => mod.ContactModule
+      import("./modules/common/about/about.module").then(
+        mod => mod.AboutModule,
       ),
   },
-  { path: '**', component: NotFoundComponent },
+  {
+    path: "contact",
+    loadChildren: () =>
+      import("./modules/common/contact/contact.module").then(
+        mod => mod.ContactModule,
+      ),
+  },
+  { path: "**", component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      initialNavigation: 'enabled',
+      initialNavigation: "enabled",
     }),
   ],
   exports: [RouterModule],
