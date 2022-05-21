@@ -3,8 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  baseUrl: 'http://localhost:4200',
   production: false,
-  API_TOKEN: '',
+  API_TOKEN: 'f79a64d7-1dbf-4537-84e1-bdcafa683258',
   application: {
     name: 'RENFE Info.',
   },

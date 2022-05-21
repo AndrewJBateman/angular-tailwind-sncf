@@ -48,16 +48,6 @@
       </div>
     </form>
 
-    <!--display search results-->
-    <!-- <span *ngFor="let station of stations | async; let i = index">
-      <app-station [station]="station"> </app-station>
-    </span> -->
-
-    <!--display stations on a map-->
-    <span *ngIf="stations">
-      <app-map [stations]="stations"></app-map>
-    </span>
-
-
+    <app-map *ngIf="stations" [stations]="stations"></app-map>
   </div>
 </div>

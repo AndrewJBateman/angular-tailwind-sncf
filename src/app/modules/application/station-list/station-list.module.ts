@@ -12,13 +12,13 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 
 import { StationListComponent } from "./station-list.component";
 import { StationListRoutingModule } from "./station-list-routing.module";
-import { StationComponent } from "../station-list/station/station.component";
 
 import { SvgBusModule } from "../../../shared/components/svg-bus/svg-bus-module";
 import { MapComponent } from "./components/map/map.component";
+import { StationDialogComponent } from './components/station-dialog/station-dialog.component';
 
 @NgModule({
-  declarations: [StationListComponent, StationComponent, MapComponent],
+  declarations: [StationListComponent, MapComponent, StationDialogComponent],
   imports: [
     CommonModule,
     StationListRoutingModule,
@@ -31,6 +31,6 @@ import { MapComponent } from "./components/map/map.component";
     MatDialogModule,
     MatTooltipModule,
   ],
-  exports: [StationListComponent, StationComponent, MapComponent, SvgBusModule],
+  exports: [StationListComponent, MapComponent, SvgBusModule],
 })
 export class StationListModule {}

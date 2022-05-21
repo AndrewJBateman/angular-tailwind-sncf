@@ -1,12 +1,10 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import * as L from "leaflet";
 
 import { NgForm } from "@angular/forms";
-import { map, scan, take, tap, toArray } from "rxjs/operators";
+import { take, toArray } from "rxjs/operators";
 
 import { environment } from "../../../../environments/environment";
 import { StationService } from "./services/station.service";
-import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-station-list",
@@ -17,6 +15,8 @@ export class StationListComponent implements OnInit {
   formSubmitted = false;
   name = environment.application.name;
   stations: any;
+  latAverage: number = 0;
+  lonAverage: number = 0;
   stationCount = 50;
 
   // search items

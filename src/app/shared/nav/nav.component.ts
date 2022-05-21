@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { TranslocoService } from "@ngneat/transloco";
+
 import { environment } from "../../../environments/environment";
 
 @Component({
