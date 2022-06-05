@@ -6,7 +6,8 @@ import { ApiService } from './api.service';
   providedIn: 'root',
 })
 export class StationService extends ApiService {
-  // API search for stations that match stationName
+  // API search for List of geographical objects within coverage fr-idf
+  // fr-idf = Ile de France
   apiStationSearch(stationName: string, count: number): Observable<any> {
     const queryUrl =
       this.rootUrl +

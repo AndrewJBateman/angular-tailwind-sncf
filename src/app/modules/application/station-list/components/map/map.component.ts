@@ -17,10 +17,10 @@ export class MapComponent implements OnInit {
   @Input() stations: any;
 
   // initialise map
-  // map: L.Map;
+  map: L.Map;
   zoom = 11;
   zoomMax = 20;
-  zoomMin = 9;
+  zoomMin = 1;
   center = L.latLng(48.83907736542451, 2.2505893409978333);
 
   layer_OpenStreetMap = L.tileLayer(
@@ -76,10 +76,6 @@ export class MapComponent implements OnInit {
       shadowUrl: "assets/icons/marker-shadow.png",
     });
 
-    // const mapCenter = this.stations[0].stop_area.coord;
-    // console.log('mapCenter: ', mapCenter)
-
-
     this.stations.map((item: any) => {
       const markerText: string = `<br><span>Name: <span class="text-blue-900">${item.name}</b></span></span>`;
       // + (item.fields.comp_loc
@@ -98,7 +94,7 @@ export class MapComponent implements OnInit {
   }
   onMapReady(map: L.Map) {
     map = map;
-    // this.center = L.latLng(48.83907736542451, 2.2505893409978333);
+    this.center = L.latLng(48.864716, 2.349014);
   }
 
   zoomIn(): void {

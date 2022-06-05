@@ -28,6 +28,9 @@ export class StationListComponent implements OnInit {
   // search for stations matching user search input
   // observable displayed in template using Angular async pipe
   onSubmitStationSearch(): void {
+    if (this.stations) {
+      this.stations = [];
+    }
     if (this.stationName) {
       this.stationService
         .apiStationSearch(this.stationName, this.stationCount)
