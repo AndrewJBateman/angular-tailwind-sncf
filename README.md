@@ -31,7 +31,7 @@
 * To build for production Tailwind’s purge option is used to tree-shake unused styles and optimize final build size.
 * [rxjs take(1) operater](https://advancedweb.hu/rxjs-the-differences-between-first-take-1-and-single/) used to take first element from the Unsplash & Github observable streams then close them, so unsubscribing is not necessary.
 * The Github API does not require an API key for a basic user profile search.
-* The Navitia API does require an API key. It is a HATEOAS API that returns JSON formated results.
+* The Navitia API does require an API key. It is a Hypermedia As The Engine Of Application State (HATEOAS) API that returns JSON formatted results. Using [places search](https://doc.navitia.io/#places)
 
 ## :camera: Screenshots
 
