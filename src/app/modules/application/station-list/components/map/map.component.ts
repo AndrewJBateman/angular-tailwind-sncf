@@ -17,7 +17,7 @@ export class MapComponent implements OnInit {
   @Input() stations: any;
 
   // initialise map
-  map: L.Map;
+  map: L.Map | undefined;
   zoom = 11;
   zoomMax = 20;
   zoomMin = 1;
@@ -75,7 +75,7 @@ export class MapComponent implements OnInit {
       iconUrl: "assets/icons/marker-icon.png",
       shadowUrl: "assets/icons/marker-shadow.png",
     });
-
+    console.log('this stations in map', this.stations);
     this.stations.map((item: any) => {
       const markerText: string = `<br><span>Name: <span class="text-blue-900">${item.name}</b></span></span>`;
       // + (item.fields.comp_loc
