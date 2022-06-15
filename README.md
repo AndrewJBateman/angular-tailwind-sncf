@@ -26,6 +26,7 @@
 
 ## :books: General info
 
+* User searches for a station name and Leaflet maps shows location of stations with that name around Paris
 * [Transloco](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular used to enable user to switch between English, Spanish and French
 * About and Contact pages give more information on app using Tailwind CSS cards
 * To build for production Tailwind’s purge option is used to tree-shake unused styles and optimize final build size.
@@ -35,13 +36,7 @@
 
 ## :camera: Screenshots
 
-| ![Angular page](./img/home.png) | ![Angular page](./img/about.png) | ![Angular page](./img/contact.png) |
-|:---:|:---:|:---:|
-| Home | About | Contact |
-
-![Angular page](./img/lighthouse-home.jpg)
-![Angular page](./img/lighthouse-about.jpg)
-![Angular page](./img/lighthouse-contact.jpg)
+![Angular page](./imgs/map.png)
 
 ## :signal_strength: Technologies
 
