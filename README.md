@@ -1,6 +1,6 @@
 # :zap: Angular Tailwind SNCF
 
-* Angular app using [Tailwindcss](https://developers.google.com/chart/) components to display mobility data from the [Navitia API](http://doc.navitia.io/#getting-started) with i18n language selection
+* Angular app using [TailwindCSS](https://developers.google.com/chart/) components to display mobility data from the [Navitia API](http://doc.navitia.io/#getting-started) with i18n language selection
 * **Note:** to open web links in a new window use: _ctrl+click on link_
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/angular-tailwind-sncf?style=plastic)
@@ -40,9 +40,9 @@
 
 ## :signal_strength: Technologies
 
-* [Angular framework v13](https://angular.io/)
-* [Angular PWA v13](https://angular.io/guide/service-worker-getting-started) - app uses service workers so app will stay up if there is a loss of network - all necessary files are cached, including index.html, icons etc.
-* [Server-side rendering (SSR) with Angular Universal v12](https://angular.io/guide/universal) to render app on an express.js server
+* [Angular framework v14](https://angular.io/)
+* [Angular PWA v14](https://angular.io/guide/service-worker-getting-started) - app uses service workers so app will stay up if there is a loss of network - all necessary files are cached, including index.html, icons etc.
+* [Server-side rendering (SSR) with Angular Universal v13](https://angular.io/guide/universal) to render app on an express.js server
 * [Angular async pipes](https://angular.io/api/common/AsyncPipe) used with asynchronous Observable objects
 * [Reactive Extensions Library for Javascript rxjs v7](https://rxjs.dev/)
 * [Leaflet v1](https://leafletjs.com/) open-source JavaScript library for mobile-friendly interactive maps
@@ -66,7 +66,6 @@
 
 ## :wrench: Testing
 
-* Run `ng lint` to lint all files using tslint
 * Run `ng test` to run Jasmine unit tests via [Karma](https://karma-runner.github.io). Currrently 9/9 tests pass
 * Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). Currently 0 tests so all pass
 
