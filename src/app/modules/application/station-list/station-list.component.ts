@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-
 import { NgForm } from "@angular/forms";
 import { take, toArray } from "rxjs/operators";
 

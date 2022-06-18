@@ -1,6 +1,6 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { FormsModule } from "@angular/forms";
 
 import { LeafletModule } from "@asymmetrik/ngx-leaflet";
 import { LeafletMarkerClusterModule } from "@asymmetrik/ngx-leaflet-markercluster";
@@ -29,7 +29,7 @@ import { StationDialogComponent } from './components/station-dialog/station-dial
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    MatTooltipModule,
+    MatTooltipModule
   ],
   exports: [StationListComponent, MapComponent, SvgBusModule],
 })
