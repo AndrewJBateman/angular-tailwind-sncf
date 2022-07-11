@@ -13,7 +13,6 @@ export class ContactComponent implements OnInit {
   constructor(private githubService: GithubService) {}
 
   ngOnInit(): void {
-    console.log('init')
     this.user$ = this.githubService.getUser('andrewjbateman');
   }
 }

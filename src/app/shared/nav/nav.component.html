@@ -1,10 +1,10 @@
 <nav
-  class="flex flex-row content-center justify-between w-full pt-1 pl-1 pr-3 font-sans text-center shadow sm:items-baseline"
+  class="flex flex-row items-center justify-between w-full pt-1 pl-1 pr-3 font-sans text-center shadow sm:items-baseline"
 >
   <!--navbar LHS-->
   <div class="self-center">
     <a
-      class="nav-link"
+      class="logo-nav-link"
       aria-label="home nav link"
       routerLink="/"
       routerLinkActive="nav-link-active"
@@ -12,36 +12,19 @@
     >
       <div class="flex text-center">
         <img
-          class="nav-left-icon"
-          src="./../../../assets/ratp.png"
-          width="50"
-          height="50"
-          alt="image of paris transport ratp"
+          src="./../../../assets/svgs/sncf.svg"
+          width="75"
+          height="38"
+          alt="sncf logo"
           loading="lazy"
         />
-        <p class="pt-3">{{ "navigation.stations" | transloco }}</p>
+        <p class="pt-6 pl-2">{{ "navigation.stations" | transloco }}</p>
       </div>
     </a>
   </div>
 
   <!--navbar RHS-->
-  <div class="self-center">
-    <a
-      class="nav-right nav-link"
-      aria-label="about nav link"
-      routerLink="/about"
-      routerLinkActive="nav-link-active"
-      >{{ "navigation.about" | transloco }}</a
-    >
-    <a
-      class="nav-right nav-link"
-      aria-label="contact nav link"
-      routerLink="/contact"
-      routerLinkActive="nav-link-active"
-      >{{ "navigation.contact" | transloco }}</a
-    >
-    <button class="nav-lang-button" (click)="onSetLanguage('fr')">FR</button>
-    <button class="nav-lang-button" (click)="onSetLanguage('es')">ES</button>
-    <button class="nav-lang-button" (click)="onSetLanguage('en')">EN</button>
+  <div class="self-center pt-3">
+    <app-dropdown></app-dropdown>
   </div>
 </nav>

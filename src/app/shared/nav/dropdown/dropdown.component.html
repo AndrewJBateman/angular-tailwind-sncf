@@ -1,0 +1,45 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  aria-label="Menu icon button"
+>
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button
+    class="nav-right nav-link"
+    aria-label="about nav link"
+    mat-menu-item
+    routerLink="/about"
+    routerLinkActive="nav-link-active"
+  >
+    <mat-icon>info_outline</mat-icon>
+    <span>{{ "navigation.about" | transloco }}</span>
+  </button>
+  <button
+    class="nav-right nav-link"
+    aria-label="contact nav link"
+    mat-menu-item
+    routerLink="/contact"
+    routerLinkActive="nav-link-active"
+  >
+    <mat-icon>contact_mail</mat-icon>
+    <span>{{ "navigation.contact" | transloco }}</span>
+  </button>
+  <button mat-menu-item [matMenuTriggerFor]="languages">
+    <mat-icon>translate</mat-icon>
+    <span>Language</span>
+  </button>
+</mat-menu>
+
+<mat-menu #languages="matMenu">
+  <button mat-menu-item class="nav-lang-button" (click)="onSetLanguage('en')">
+    English
+  </button>
+  <button mat-menu-item class="nav-lang-button" (click)="onSetLanguage('fr')">
+    French
+  </button>
+  <button mat-menu-item class="nav-lang-button" (click)="onSetLanguage('es')">
+    Spanish
+  </button>
+</mat-menu>

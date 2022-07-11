@@ -17,6 +17,10 @@
     height: 4rem;
   }
 
+  logo-nav-link {
+    padding-right: 8px;
+  }
+
   .nav-link {
     color: #000c66 !important;
     @apply mx-2;
@@ -28,6 +32,7 @@
 
   .nav-link-active {
     color: #0000ff !important;
+    font-weight: bold;
   }
 
   .nav-lang-button {
@@ -40,8 +45,8 @@
     padding: 10px;
   }
 
-  .renfe-purple {
-    background-color: #a1006b;
+  .sncf-blue {
+    background-color: #0088CE;
   }
 
   .station-card {
@@ -53,6 +58,7 @@
   .search-form {
     background-color: #f5f3f3;
     @apply rounded-lg shadow-lg;
+    max-width: 400px;
   }
 
   .input-form {
