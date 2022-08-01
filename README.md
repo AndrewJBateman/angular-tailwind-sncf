@@ -85,7 +85,7 @@
 ## :clipboard: Status & To-Do List
 
 * Status: In work
-* To-Do: Add language dropdown menu, pass cordinates from API search to map. Finish search, map to show places found, place select. Make it an SSR.
+* To-Do: Add language dropdown menu. Clear map for new search. Make it an SSR.
 * Optional: Convert to graphQL
 
 ## :clap: Inspiration
@@ -96,6 +96,7 @@
 * [dev.to: Setup TailwindCSS in Angular the easy way](https://dev.to/angular/setup-tailwindcss-in-angular-the-easy-way-1i5l)
 * [LogRocket: Types vs. interfaces in TypeScript](https://blog.logrocket.com/types-vs-interfaces-in-typescript/)
 * [Free svg site](https://freesvg.org/)
+* [worldvectorlogo.com](https://worldvectorlogo.com/) svgs to download
 * [Font Awesome icons](https://fontawesome.com/v6.0/icons)
 * [Stackoverflow: How to add rel=“preconnect” to tags other than link?](https://stackoverflow.com/questions/54900054/how-to-add-rel-preconnect-to-tags-other-than-link)
 
