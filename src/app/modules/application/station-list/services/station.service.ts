@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { ApiService } from './api.service';
+import { take, catchError } from "rxjs/operators";
+import { Injectable } from "@angular/core";
+import { Observable, throwError } from "rxjs";
+import { ApiService } from "./api.service";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class StationService extends ApiService {
   // API search for List of geographical objects within coverage fr-idf
@@ -11,11 +12,16 @@ export class StationService extends ApiService {
   apiStationSearch(stationName: string, count: number): Observable<any> {
     const queryUrl =
       this.rootUrl +
-      'coverage/fr-idf/places?q=' +
+      "coverage/fr-idf/places?q=" +
       stationName +
-      '&count=' +
+      "&count=" +
       count +
-      '&type%5B%5D=stop_area&depth=3';
-    return this.fetchAPIData(queryUrl);
+      "&type%5B%5D=stop_area&depth=3";
+    return this.fetchAPIData(queryUrl).pipe(
+      take(1),
+      catchError(err => {
+        return throwError(() => err);
+      }),
+    );
   }
 }
