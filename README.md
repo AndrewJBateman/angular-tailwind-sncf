@@ -30,7 +30,7 @@
 * [Transloco](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular used to enable user to switch between English, Spanish and French
 * About and Contact pages give more information on app using Tailwind CSS cards
 * To build for production Tailwind’s purge option is used to tree-shake unused styles and optimize final build size.
-* [rxjs take(1) operater](https://advancedweb.hu/rxjs-the-differences-between-first-take-1-and-single/) used to take first element from the Unsplash & Github observable streams then close them, so unsubscribing is not necessary.
+* [rxjs take(1) operater](https://advancedweb.hu/rxjs-the-differences-between-first-take-1-and-single/) used to take first element from the SNCF & Github observable streams then close them, so unsubscribing is not necessary.
 * The Github API does not require an API key for a basic user profile search.
 * The Navitia API does require an API key. It is a Hypermedia As The Engine Of Application State (HATEOAS) API that returns JSON formatted results. Using [places search](https://doc.navitia.io/#places)
 
@@ -42,7 +42,7 @@
 
 * [Angular framework v14](https://angular.io/)
 * [Angular PWA v14](https://angular.io/guide/service-worker-getting-started) - app uses service workers so app will stay up if there is a loss of network - all necessary files are cached, including index.html, icons etc.
-* [Server-side rendering (SSR) with Angular Universal v13](https://angular.io/guide/universal) to render app on an express.js server
+* [Server-side rendering (SSR) with Angular Universal v14](https://angular.io/guide/universal) to render app on an express.js server
 * [Angular async pipes](https://angular.io/api/common/AsyncPipe) used with asynchronous Observable objects
 * [Reactive Extensions Library for Javascript rxjs v7](https://rxjs.dev/)
 * [Leaflet v1](https://leafletjs.com/) open-source JavaScript library for mobile-friendly interactive maps
@@ -54,7 +54,7 @@
 ## :floppy_disk: Setup
 
 * Run `npm i` to install dependencies.
-* Get yourself an [Unsplash Login & API Key](https://unsplash.com/developers).
+* Get yourself an [API key by registering with Navitia.io](https://navitia.io/inscription/)
 * Add API key to the `environments.ts` file
 * Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 * `npm run dev:ssr` to render app on local express server (SSR)
@@ -62,7 +62,7 @@
 * `npm run serve:ssr` to run SSR build file
 * Run `npm run build` for a production build with css purging.
 * Run `http-server` to view build on an apple/android phone or simulator (pick 2nd http address supplied)
-* The build artifacts will be stored in the `dist/angular-tailwind-unsplash` directory.
+* The build artifacts will be stored in the `dist/angular-tailwind-sncf` directory.
 
 ## :wrench: Testing
 
@@ -85,7 +85,7 @@
 ## :clipboard: Status & To-Do List
 
 * Status: In work
-* To-Do: Add language dropdown menu. Clear map for new search. Make it an SSR.
+* To-Do: Add language dropdown menu active CSS. Clear map for new search. Make it an SSR. Deploy.
 * Optional: Convert to graphQL
 
 ## :clap: Inspiration
