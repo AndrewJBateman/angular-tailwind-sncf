@@ -40,9 +40,9 @@
 
 ## :signal_strength: Technologies
 
-* [Angular framework v14](https://angular.io/)
-* [Angular PWA v14](https://angular.io/guide/service-worker-getting-started) - app uses service workers so app will stay up if there is a loss of network - all necessary files are cached, including index.html, icons etc.
-* [Server-side rendering (SSR) with Angular Universal v14](https://angular.io/guide/universal) to render app on an express.js server
+* [Angular framework v15](https://angular.io/)
+* [Angular PWA v15](https://angular.io/guide/service-worker-getting-started) - app uses service workers so app will stay up if there is a loss of network - all necessary files are cached, including index.html, icons etc.
+* [Server-side rendering (SSR) with Angular Universal v15](https://angular.io/guide/universal) to render app on an express.js server
 * [Angular async pipes](https://angular.io/api/common/AsyncPipe) used with asynchronous Observable objects
 * [Reactive Extensions Library for Javascript rxjs v7](https://rxjs.dev/)
 * [Leaflet v1](https://leafletjs.com/) open-source JavaScript library for mobile-friendly interactive maps
