@@ -7,29 +7,23 @@ const routes: Routes = [
   {
     path: "",
     loadChildren: () =>
-      import("./modules/application/station-list/station-list.module").then(
-        mod => mod.StationListModule,
-      ),
+      import("./modules/application/station-list/station-list.module"),
   },
   {
     path: "about",
-    loadChildren: () =>
-      import("./modules/common/about/about.module").then(
-        mod => mod.AboutModule,
-      ),
+    loadChildren: () => import("./modules/common/about/about.module"),
   },
   {
     path: "contact",
-    loadChildren: () =>
-      import("./modules/common/contact/contact.module").then(
-        mod => mod.ContactModule,
-      ),
+    loadChildren: () => import("./modules/common/contact/contact.module"),
   },
   { path: "**", component: NotFoundComponent },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {})],
+  imports: [
+    RouterModule.forRoot(routes, { initialNavigation: "enabledBlocking" }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -33,4 +33,4 @@ import { StationDialogComponent } from './components/station-dialog/station-dial
   ],
   exports: [StationListComponent, MapComponent, SvgBusModule],
 })
-export class StationListModule {}
+export default class StationListModule {}
