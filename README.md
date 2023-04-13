@@ -11,17 +11,17 @@
 ## :page_facing_up: Table of contents
 
 * [:zap: Angular Tailwind SNCF](#zap-angular-tailwind-sncf)
-  * [:page_facing_up: Table of contents](#page_facing_up-table-of-contents)
+  * [:page\_facing\_up: Table of contents](#page_facing_up-table-of-contents)
   * [:books: General info](#books-general-info)
   * [:camera: Screenshots](#camera-screenshots)
-  * [:signal_strength: Technologies](#signal_strength-technologies)
-  * [:floppy_disk: Setup](#floppy_disk-setup)
+  * [:signal\_strength: Technologies](#signal_strength-technologies)
+  * [:floppy\_disk: Setup](#floppy_disk-setup)
   * [:wrench: Testing](#wrench-testing)
   * [:computer: Code Examples](#computer-code-examples)
   * [:cool: Features](#cool-features)
-  * [:clipboard: Status & To-Do List](#clipboard-status--to-do-list)
+  * [:clipboard: Status \& To-Do List](#clipboard-status--to-do-list)
   * [:clap: Inspiration](#clap-inspiration)
-  * [:file_folder: License](#file_folder-license)
+  * [:file\_folder: License](#file_folder-license)
   * [:envelope: Contact](#envelope-contact)
 
 ## :books: General info
@@ -40,13 +40,12 @@
 
 ## :signal_strength: Technologies
 
-* [Angular framework v15](https://angular.io/)
-* [Angular PWA v15](https://angular.io/guide/service-worker-getting-started) - app uses service workers so app will stay up if there is a loss of network - all necessary files are cached, including index.html, icons etc.
-* [Server-side rendering (SSR) with Angular Universal v15](https://angular.io/guide/universal) to render app on an express.js server
+* [Angular framework v16](https://angular.io/)
+* [Angular PWA v16](https://angular.io/guide/service-worker-getting-started) - app uses service workers so app will stay up if there is a loss of network - all necessary files are cached, including index.html, icons etc.
 * [Angular async pipes](https://angular.io/api/common/AsyncPipe) used with asynchronous Observable objects
 * [Reactive Extensions Library for Javascript rxjs v7](https://rxjs.dev/)
 * [Leaflet v1](https://leafletjs.com/) open-source JavaScript library for mobile-friendly interactive maps
-* [@ngneat/transloco v3](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular
+* [@ngneat/transloco v4](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular
 * [Tailwindcss v3](https://tailwindcss.com/) CSS framework
 * [http-server](https://www.npmjs.com/package/http-server) command-line http server to view the PWA
 * [Netlify CLI](https://www.npmjs.com/package/netlify-cli) to deploy app on Netlify
@@ -57,30 +56,42 @@
 * Get yourself an [API key by registering with Navitia.io](https://navitia.io/inscription/)
 * Add API key to the `environments.ts` file
 * Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-* `npm run dev:ssr` to render app on local express server (SSR)
-* `npm run build:ssr` to create build file with SSR, then add defer to styles file in `index.html`
-* `npm run serve:ssr` to run SSR build file
 * Run `npm run build` for a production build with css purging.
 * Run `http-server` to view build on an apple/android phone or simulator (pick 2nd http address supplied)
 * The build artifacts will be stored in the `dist/angular-tailwind-sncf` directory.
 
 ## :wrench: Testing
 
-* Run `ng test` to run Jasmine unit tests via [Karma](https://karma-runner.github.io). Currrently 9/9 tests pass
-* Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/). Currently 0 tests so all pass
+* Run `ng test` to run Jasmine unit tests via [Karma](https://karma-runner.github.io). Currrently 8/12 tests pass
 
 ## :computer: Code Examples
 
-* tba
+* function from `station-list.module.ts` to return a list of stations from a user input string
 
 ```typescript
-
+  // search for stations matching user search input
+  // observable displayed in template using Angular async pipe
+  onSubmitStationSearch(stationSearch: NgForm): void {
+    if (this.stations) {
+      this.stations = [];
+    }
+    let searchName = stationSearch.form.value.stationName
+    if (searchName) {
+      this.stationService
+        .apiStationSearch(
+          searchName,
+          this.stationCount,
+        )
+        .pipe(take(this.stationCount), toArray())
+        .subscribe(data => (this.stations = data[0].places));
+    }
+  }
 ```
 
 ## :cool: Features
 
 * Lazy-loading of About and Contact pages
-* Tailwind build for production css purge results in a very small styles bundle (about tba kB)
+* Tailwind build for production CSS purge results in a very small styles bundle (about tba kB)
 
 ## :clipboard: Status & To-Do List
 
