@@ -1,4 +1,4 @@
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
@@ -15,7 +15,7 @@ import { StationListRoutingModule } from "./station-list-routing.module";
 
 import { SvgBusModule } from "../../../shared/components/svg-bus/svg-bus-module";
 import { MapComponent } from "./components/map/map.component";
-import { StationDialogComponent } from './components/station-dialog/station-dialog.component';
+import { StationDialogComponent } from "./components/station-dialog/station-dialog.component";
 
 @NgModule({
   declarations: [StationListComponent, MapComponent, StationDialogComponent],
@@ -29,7 +29,7 @@ import { StationDialogComponent } from './components/station-dialog/station-dial
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
   ],
   exports: [StationListComponent, MapComponent, SvgBusModule],
 })
