@@ -41,7 +41,6 @@
 ## :signal_strength: Technologies
 
 * [Angular framework v16](https://angular.io/)
-* [Angular PWA v16](https://angular.io/guide/service-worker-getting-started) - app uses service workers so app will stay up if there is a loss of network - all necessary files are cached, including index.html, icons etc.
 * [Angular async pipes](https://angular.io/api/common/AsyncPipe) used with asynchronous Observable objects
 * [Reactive Extensions Library for Javascript rxjs v7](https://rxjs.dev/)
 * [Leaflet v1](https://leafletjs.com/) open-source JavaScript library for mobile-friendly interactive maps
@@ -117,4 +116,4 @@
 
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: `gomezbateman@yahoo.com`
