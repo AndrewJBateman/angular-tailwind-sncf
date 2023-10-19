@@ -27,7 +27,7 @@
 ## :books: General info
 
 * User searches for a station name and Leaflet maps shows location of stations with that name around Paris
-* [Transloco](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular used to enable user to switch between English, Spanish and French
+* [Transloco](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular used to enable user to switch between English, Spanish and French. VERSION 4 ONLY - not v5 or v6 or nothing works :-(
 * About and Contact pages give more information on app using Tailwind CSS cards
 * To build for production Tailwind’s purge option is used to tree-shake unused styles and optimize final build size.
 * [rxjs take(1) operater](https://advancedweb.hu/rxjs-the-differences-between-first-take-1-and-single/) used to take first element from the SNCF & Github observable streams then close them, so unsubscribing is not necessary.
@@ -44,7 +44,7 @@
 * [Angular async pipes](https://angular.io/api/common/AsyncPipe) used with asynchronous Observable objects
 * [Reactive Extensions Library for Javascript rxjs v7](https://rxjs.dev/)
 * [Leaflet v1](https://leafletjs.com/) open-source JavaScript library for mobile-friendly interactive maps
-* [@ngneat/transloco v4](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular
+* [@ngneat/transloco v4](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular. VERSION 4 ONLY. DO NOT UPDATE.
 * [Tailwindcss v3](https://tailwindcss.com/) CSS framework
 * [http-server](https://www.npmjs.com/package/http-server) command-line http server to view the PWA
 * [Netlify CLI](https://www.npmjs.com/package/netlify-cli) to deploy app on Netlify
