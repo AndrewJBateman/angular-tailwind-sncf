@@ -9,9 +9,8 @@ describe('StationListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientModule],
-      declarations: [ StationListComponent ]
-    })
+    imports: [HttpClientModule, StationListComponent]
+})
     .compileComponents();
   });
 

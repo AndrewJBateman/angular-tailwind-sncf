@@ -1,13 +1,21 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { NgForm } from "@angular/forms";
+import { NgForm, FormsModule } from "@angular/forms";
 import { take, toArray } from "rxjs/operators";
 
 import { environment } from "../../../../environments/environment";
 import { StationService } from "./services/station.service";
+import { MapComponent } from "./components/map/map.component";
+import { NgIf } from "@angular/common";
 
 @Component({
-  selector: "app-station-list",
-  templateUrl: "./station-list.component.html",
+    selector: "app-station-list",
+    templateUrl: "./station-list.component.html",
+    standalone: true,
+    imports: [
+        FormsModule,
+        NgIf,
+        MapComponent,
+    ],
 })
 export class StationListComponent implements OnInit {
   name = environment.application.name;

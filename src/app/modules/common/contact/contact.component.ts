@@ -3,10 +3,18 @@ import { Observable } from 'rxjs';
 
 import { User } from './models/user';
 import { GithubService } from './services/github.service';
+import { NgIf, AsyncPipe, SlicePipe, DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-contact',
-  templateUrl: './contact.component.html',
+    selector: 'app-contact',
+    templateUrl: './contact.component.html',
+    standalone: true,
+    imports: [
+        NgIf,
+        AsyncPipe,
+        SlicePipe,
+        DatePipe,
+    ],
 })
 export class ContactComponent implements OnInit {
   user$: Observable<User> = new Observable();

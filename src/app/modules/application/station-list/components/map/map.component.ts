@@ -5,11 +5,17 @@ import "leaflet.markercluster";
 import { MatDialog } from "@angular/material/dialog";
 
 import { StationDialogComponent } from "../station-dialog/station-dialog.component";
+import { MatIcon } from "@angular/material/icon";
+import { MatTooltip } from "@angular/material/tooltip";
+import { LeafletMarkerClusterModule } from "@asymmetrik/ngx-leaflet-markercluster";
+import { LeafletModule } from "@asymmetrik/ngx-leaflet";
 
 @Component({
-  selector: "app-map",
-  templateUrl: "./map.component.html",
-  styleUrls: ['./map.component.css']
+    selector: "app-map",
+    templateUrl: "./map.component.html",
+    styleUrls: ['./map.component.css'],
+    standalone: true,
+    imports: [LeafletModule, LeafletMarkerClusterModule, MatTooltip, MatIcon]
 })
 export class MapComponent implements OnInit {
 
