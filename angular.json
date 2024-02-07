@@ -79,10 +79,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-tailwind-sncf:build:production"
+              "buildTarget": "angular-tailwind-sncf:build:production"
             },
             "development": {
-              "browserTarget": "angular-tailwind-sncf:build:development"
+              "buildTarget": "angular-tailwind-sncf:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -90,7 +90,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-tailwind-sncf:build"
+            "buildTarget": "angular-tailwind-sncf:build"
           }
         },
         "test": {
