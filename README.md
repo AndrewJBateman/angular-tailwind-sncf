@@ -33,6 +33,7 @@
 * [rxjs take(1) operater](https://advancedweb.hu/rxjs-the-differences-between-first-take-1-and-single/) used to take first element from the SNCF & Github observable streams then close them, so unsubscribing is not necessary.
 * The Github API does not require an API key for a basic user profile search.
 * The Navitia API does require an API key. It is a Hypermedia As The Engine Of Application State (HATEOAS) API that returns JSON formatted results. Using [places search](https://doc.navitia.io/#places)
+* Angular standalone components used to reduce amount of code and complexity.
 
 ## :camera: Screenshots
 
@@ -40,7 +41,7 @@
 
 ## :signal_strength: Technologies
 
-* [Angular framework v16](https://angular.io/)
+* [Angular framework v17](https://angular.io/)
 * [Angular async pipes](https://angular.io/api/common/AsyncPipe) used with asynchronous Observable objects
 * [Reactive Extensions Library for Javascript rxjs v7](https://rxjs.dev/)
 * [Leaflet v1](https://leafletjs.com/) open-source JavaScript library for mobile-friendly interactive maps
