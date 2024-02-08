@@ -6,14 +6,14 @@ import { NotFoundComponent } from "./modules/common/not-found/not-found.componen
 const routes: Routes = [
   {
     path: "",
-    loadChildren: () =>
-      import("./modules/application/station-list/station-list.module"),
+    loadComponent: () =>
+      import("./modules/application/station-list/station-list.component").then(m => m.StationListComponent),
   },
   {
     path: "about",
     loadChildren: () => import("./modules/common/about/about.module"),
   },
-  {
+  { 
     path: "contact",
     loadChildren: () => import("./modules/common/contact/contact.module"),
   },

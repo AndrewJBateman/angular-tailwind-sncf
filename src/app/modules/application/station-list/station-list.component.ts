@@ -4,18 +4,33 @@ import { take, toArray } from "rxjs/operators";
 
 import { environment } from "../../../../environments/environment";
 import { StationService } from "./services/station.service";
+import { LeafletModule } from "@asymmetrik/ngx-leaflet";
+import { LeafletMarkerClusterModule } from "@asymmetrik/ngx-leaflet-markercluster";
+
+import { MatButtonModule } from "@angular/material/button";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatIconModule } from "@angular/material/icon";
+import { MatTooltipModule } from "@angular/material/tooltip";
+
 import { MapComponent } from "./components/map/map.component";
-import { NgIf } from "@angular/common";
+import { StationDialogComponent } from "./components/station-dialog/station-dialog.component";
+
 
 @Component({
     selector: "app-station-list",
     templateUrl: "./station-list.component.html",
     standalone: true,
     imports: [
-        FormsModule,
-        NgIf,
-        MapComponent,
-    ],
+    FormsModule,
+    MapComponent,
+    LeafletModule,
+    LeafletMarkerClusterModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule,
+    MatTooltipModule,
+    StationDialogComponent,
+],
 })
 export class StationListComponent implements OnInit {
   name = environment.application.name;

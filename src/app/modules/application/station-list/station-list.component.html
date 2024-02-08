@@ -2,53 +2,55 @@
   <meta
     name="description"
     content="Station list page shows list of stations + map location matching user search text"
-  />
-  X-Frame-Options="SAMEORIGIN"
-</head>
+    />
+    X-Frame-Options="SAMEORIGIN"
+  </head>
 
-<div class="min-h-screen min-w-screen sncf-blue">
-  <div class="w-full h-full px-4 py-4">
-    <!--search bar-->
-    <form
-      #stationSearch="ngForm"
-      method="POST"
-      (ngSubmit)="onSubmitStationSearch(stationSearch)"
-      novalidate
-      class="search-form"
-    >
-      <div class="mb-2 mr-0 rounded-lg input-group">
-        <div class="station-card">
-          <div class="py-2 rounded-lg search-bar">
-            <input
-              name="stationName"
-              ngModel
-              required
-              #stationName="ngModel"
-              class="pl-2 leading-tight border-none outline-none input-form form-control focus:"
-              type="text"
-              placeholder="nom de la station"
-              aria-label="Enter place name"
-              minlength="3"
-              maxlength="20"
-            />
-            <button
-              aria-label="renfe station search button"
-              type="submit"
-              class="absolute top-0 right-0 mt-3 mr-4"
-            >
-              <img
-                class="w-5 h-5 fill-current"
-                src="./../../../assets/search.svg"
-                width="20"
-                height="20"
-                alt="search button magnifying glass image"
-              />
-            </button>
-          </div>
+  <div class="min-h-screen min-w-screen sncf-blue">
+    <div class="w-full h-full px-4 py-4">
+      <!--search bar-->
+      <form
+        #stationSearch="ngForm"
+        method="POST"
+        (ngSubmit)="onSubmitStationSearch(stationSearch)"
+        novalidate
+        class="search-form"
+        >
+        <div class="mb-2 mr-0 rounded-lg input-group">
+          <div class="station-card">
+            <div class="py-2 rounded-lg search-bar">
+              <input
+                name="stationName"
+                ngModel
+                required
+                #stationName="ngModel"
+                class="pl-2 leading-tight border-none outline-none input-form form-control focus:"
+                type="text"
+                placeholder="nom de la station"
+                aria-label="Enter place name"
+                minlength="3"
+                maxlength="20"
+                />
+                <button
+                  aria-label="renfe station search button"
+                  type="submit"
+                  class="absolute top-0 right-0 mt-3 mr-4"
+                  >
+                  <img
+                    class="w-5 h-5 fill-current"
+                    src="./../../../assets/search.svg"
+                    width="20"
+                    height="20"
+                    alt="search button magnifying glass image"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          @if (stations) {
+            <app-map [stations]="stations"></app-map>
+          }
         </div>
       </div>
-    </form>
-
-    <app-map *ngIf="stations" [stations]="stations"></app-map>
-  </div>
-</div>
