@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit, OnDestroy, ViewChild, SecurityContext } from "@angular/core";
 import { NgForm, FormsModule } from "@angular/forms";
-import { take, toArray } from "rxjs/operators";
+import { DomSanitizer } from '@angular/platform-browser';
+import { take, toArray, catchError } from "rxjs/operators";
+import { Observable, Subscription } from "rxjs";
 
 import { environment } from "../../../../environments/environment";
 import { StationService } from "./services/station.service";
@@ -14,13 +16,13 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 
 import { MapComponent } from "./components/map/map.component";
 import { StationDialogComponent } from "./components/station-dialog/station-dialog.component";
-
+import { ISncfResponse, IPlace } from "./models/sncf";
 
 @Component({
-    selector: "app-station-list",
-    templateUrl: "./station-list.component.html",
-    standalone: true,
-    imports: [
+  selector: "app-station-list",
+  templateUrl: "./station-list.component.html",
+  standalone: true,
+  imports: [
     FormsModule,
     MapComponent,
     LeafletModule,
@@ -30,16 +32,20 @@ import { StationDialogComponent } from "./components/station-dialog/station-dial
     MatDialogModule,
     MatTooltipModule,
     StationDialogComponent,
-],
+  ],
 })
-export class StationListComponent implements OnInit {
+export class StationListComponent implements OnInit, OnDestroy {
+  private subscription: Subscription;
+
   name = environment.application.name;
-  stations: any;
+  stations: IPlace[];
   latAverage: number = 0;
   lonAverage: number = 0;
   stationCount = 50;
+  loading: boolean = false;
+  sanitizedValue: string = '';
 
-  constructor(private stationService: StationService) {}
+  constructor(private stationService: StationService, private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {}
 
@@ -49,15 +55,29 @@ export class StationListComponent implements OnInit {
     if (this.stations) {
       this.stations = [];
     }
-    let searchName = stationSearch.form.value.stationName
+    let searchName = this.sanitizeInput(stationSearch.form.value.stationName);
     if (searchName) {
-      this.stationService
-        .apiStationSearch(
-          searchName,
-          this.stationCount,
-        )
-        .pipe(take(this.stationCount), toArray())
-        .subscribe(data => (this.stations = data[0].places));
+      this.loading = true; // Set loading state to true
+      this.subscription = this.stationService
+        .apiStationSearch(searchName, this.stationCount)
+        .subscribe((data: ISncfResponse[]) => (this.stations = data[0].places));
+        this.loading = false; // Set loading state to false after data is fetched
+    }
+  }
+
+  sanitizeInput(input: string): string {
+    console.log('input: ', input)
+    const sanitizedValue = this.sanitizer.sanitize(
+      SecurityContext.HTML,
+      input
+    );
+    console.log('sanitised: ', sanitizedValue)
+    return this.sanitizedValue = sanitizedValue ? sanitizedValue.toString() : '';
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }
