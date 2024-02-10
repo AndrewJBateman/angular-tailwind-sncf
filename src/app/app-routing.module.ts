@@ -7,15 +7,23 @@ const routes: Routes = [
   {
     path: "",
     loadComponent: () =>
-      import("./modules/application/station-list/station-list.component").then(m => m.StationListComponent),
+      import("./modules/application/station-list/station-list.component").then(
+        m => m.StationListComponent,
+      ),
   },
   {
     path: "about",
-    loadChildren: () => import("./modules/common/about/about.module"),
+    loadComponent: () =>
+      import("./modules/common/about/about.component").then(
+        m => m.AboutComponent,
+      ),
   },
-  { 
+  {
     path: "contact",
-    loadChildren: () => import("./modules/common/contact/contact.module"),
+    loadComponent: () =>
+      import("./modules/common/contact/contact.component").then(
+        m => m.ContactComponent,
+      ),
   },
   { path: "**", component: NotFoundComponent },
 ];
