@@ -4,7 +4,7 @@ import { Observable } from "rxjs";
 
 import { environment } from "../../../../../environments/environment";
 
-const apiKey = environment.API_TOKEN;
+const apiKey = environment.NAVITIA_API_TOKEN;
 
 @Injectable({
   providedIn: "root",

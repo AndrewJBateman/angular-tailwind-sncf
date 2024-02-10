@@ -16,7 +16,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 
 import { MapComponent } from "./components/map/map.component";
 import { StationDialogComponent } from "./components/station-dialog/station-dialog.component";
-import { ISncfResponse, IPlace } from "./models/sncf";
+import { SncfResponse, Place } from "./models/sncf";
 
 @Component({
   selector: "app-station-list",
@@ -38,7 +38,7 @@ export class StationListComponent implements OnInit, OnDestroy {
   private subscription: Subscription;
 
   name = environment.application.name;
-  stations: IPlace[];
+  stations: Place[];
   latAverage: number = 0;
   lonAverage: number = 0;
   stationCount = 50;
@@ -60,7 +60,7 @@ export class StationListComponent implements OnInit, OnDestroy {
       this.loading = true; // Set loading state to true
       this.subscription = this.stationService
         .apiStationSearch(searchName, this.stationCount)
-        .subscribe((data: ISncfResponse[]) => (this.stations = data[0].places));
+        .subscribe((data: SncfResponse[]) => (this.stations = data[0].places));
         this.loading = false; // Set loading state to false after data is fetched
     }
   }

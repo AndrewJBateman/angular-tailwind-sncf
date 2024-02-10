@@ -1,52 +1,52 @@
-export interface ISncfResponse {
+export interface SncfResponse {
   context: {
     current_datetime: string;
     timezone: string;
   }
-  feed_publishers: Ifeed[];
-  links: ILink[];
-  places: IPlace[];
-  warnings: IWarning[];
+  feed_publishers: Feed[];
+  links: Link[];
+  places: Place[];
+  warnings: Warning[];
 };
 
-export interface Ifeed {
+export interface Feed {
   id: string;
   license: string;
   name: string;
   url: string;
 };
 
-export interface ILink {
+export interface Link {
   href: string;
   rel: string;
   templated: boolean;
   type: string;
 }
 
-export interface IPlace {
+export interface Place {
   embedded_type: string;
   id: string;
   name: string;
   quality: number;
   stop_area: {
-    administrative_regions: IAdminReg[];
-    codes: ICode[]
+    administrative_regions: AdminReg[];
+    codes: Code[]
     comment: string | null;
-    commercial_modes: IMode[];
+    commercial_modes: Mode[];
     coord: {
       lat: string;
       lon: string;
     };
     id: string;
     label: string;
-    lines: ILine[];
+    lines: Line[];
     name: string;
-    physical_modes: IMode[];
+    physical_modes: Mode[];
     timezone: string;
   }
 }
 
-export interface IAdminReg {
+export interface AdminReg {
   coord: {
     lat: string;
     lon: string;
@@ -59,31 +59,31 @@ export interface IAdminReg {
   zip_code: string;
 }
 
-export interface ICode {
+export interface Code {
   type: string;
   value: string;
 }
 
-export interface IMode {
+export interface Mode {
   id: string;
   name: string;
 }
 
-export interface ILine {
+export interface Line {
   code: string;
   color: string;
-  commercial_mode: IMode[];
+  commercial_mode: Mode[];
   id: string;
   name: string;
   network: {
     id: string;
     name: string;
   };
-  physical_modes: IMode[];
+  physical_modes: Mode[];
   text_color: string;
 }
 
-export interface IWarning {
+export interface Warning {
   id: string;
   message: string;
 }
