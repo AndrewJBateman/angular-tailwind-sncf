@@ -1,3 +1,14 @@
+<!--
+This code snippet represents a HTML template for a menu with dropdown options.
+It uses Angular Material components for styling and functionality.
+The menu is triggered by a button with a menu icon. When clicked, it opens a dropdown menu
+with three options: "About", "Contact", and "Language". Each option is represented by a button
+with an icon and a text label. The "About" and "Contact" options are router links, which
+navigate to different routes when clicked. The "Language" option opens another dropdown menu
+with three language options: English, French, and Spanish.
+Clicking on any of these language options triggers a function called "onSetLanguage"
+with the corresponding language code as a parameter.
+-->
 <button
   mat-icon-button
   [matMenuTriggerFor]="menu"
@@ -10,7 +21,7 @@
     class="nav-right nav-link"
     aria-label="about nav link"
     mat-menu-item
-    routerLink="/about"
+    routerLink="aboutRoute"
     routerLinkActive="nav-link-active"
   >
     <mat-icon>info_outline</mat-icon>
@@ -20,7 +31,7 @@
     class="nav-right nav-link"
     aria-label="contact nav link"
     mat-menu-item
-    routerLink="/contact"
+    routerLink="contactRoute"
     routerLinkActive="nav-link-active"
   >
     <mat-icon>contact_mail</mat-icon>

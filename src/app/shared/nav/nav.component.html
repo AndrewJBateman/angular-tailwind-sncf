@@ -1,23 +1,25 @@
+<!--This code snippet represents an HTML navigation bar.
+It consists of a <nav> element with two sections: the LHS and the RHS.
+The LHS section contains a logo and a text link. The logo is displayed using an <img>
+  element with a dynamic source attribute ({{sncfImagePath}}).
+The text link is wrapped in an <a> element and has a class of "logo-nav-link".
+It also uses Angular's routerLink directive for navigation and has an active state
+  when the current route matches the specified route.
+
+The RHS section contains a custom component called "app-dropdown".
+This component is displayed using an <app-dropdown> element.
+
+Overall, this code snippet represents a responsive navigation bar with a logo, text link,
+and a custom dropdown component.
+-->
 <nav
-  class="flex flex-row items-center justify-between w-full pt-1 pl-1 pr-3 font-sans text-center shadow sm:items-baseline"
->
+  class="flex flex-row items-center justify-between w-full pt-1 pl-1 pr-3 font-sans text-center shadow sm:items-baseline">
   <!--navbar LHS-->
   <div class="self-center">
-    <a
-      class="logo-nav-link"
-      aria-label="home nav link"
-      routerLink="/"
-      routerLinkActive="nav-link-active"
-      [routerLinkActiveOptions]="{ exact: true }"
-    >
+    <a class="logo-nav-link" aria-label="home nav link" routerLink="/" routerLinkActive="nav-link-active"
+      [routerLinkActiveOptions]="{ exact: true }">
       <div class="flex text-center">
-        <img
-          src="./../../../assets/svgs/sncf.svg"
-          width="75"
-          height="38"
-          alt="sncf logo"
-          loading="lazy"
-        />
+        <img src="{{sncfImagePath}}" width="75" height="38" alt="sncf logo" loading="lazy" />
         <p class="pt-6 pl-2">{{ "navigation.stations" | transloco }}</p>
       </div>
     </a>

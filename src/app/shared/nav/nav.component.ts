@@ -1,4 +1,15 @@
-import { Component } from "@angular/core";
+/**
+ * Represents the NavComponent class.
+ *
+ * This component is responsible for rendering the navigation bar of the application.
+ * It imports necessary modules and components, such as TranslocoService, TranslocoModule,
+ * DropdownComponent, RouterLink, and RouterLinkActive.
+ * The component has a translateService property which is injected with the TranslocoService.
+ * It also has a name property which holds the application name from the environment.
+ * The onSetLanguage method is used to set the active language for translation using the
+ * translateService.
+ */
+import { Component, inject } from "@angular/core";
 import { TranslocoService, TranslocoModule } from "@ngneat/transloco";
 
 import { environment } from "../../../environments/environment";
@@ -17,11 +28,11 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
     ],
 })
 export class NavComponent {
+  public translateService = inject(TranslocoService);
   name = environment.application.name;
+  public sncfImagePath = "../../../../assets/svgs/sncf.svg";
 
-  constructor(public translateService: TranslocoService) {}
-
-  public onSetLanguage(lang: string) {
+  public onSetLanguage(lang: string): void {
     this.translateService.setActiveLang(lang);
   }
 }
