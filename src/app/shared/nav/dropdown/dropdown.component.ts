@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { TranslocoService, TranslocoModule } from "@ngneat/transloco";
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import { MatIcon } from "@angular/material/icon";
@@ -20,7 +20,7 @@ import { MatIconButton } from "@angular/material/button";
     TranslocoModule,
   ],
 })
-export class DropdownComponent implements OnInit {
+export class DropdownComponent {
   public translateService = inject(TranslocoService);
   public aboutRoute = "/about";
   public contactRoute = "/contact";
