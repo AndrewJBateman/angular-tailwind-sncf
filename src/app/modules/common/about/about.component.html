@@ -1,40 +1,29 @@
+<!-- This code snippet represents an HTML section that displays information about an app.
+  It includes a description meta tag, a link prefetching tag, and a section with a flex layout.
+  Inside the section, there is a card-like structure with an image, a title, and some text content.
+  The text content includes information about nearby businesses obtained from the RATP API and contact
+  data extracted from the GitHub API. Additionally, there is a table displaying information about
+  the frameworks and testing tools used in the app. At the end, there is a link to the GitHub repository.-->
 <head>
   <meta name="description" content="Shows details of app" />
-  <meta />
-  <link
-    rel="prefetch"
-    as="document"
-    src="https://github.com/AndrewJBateman/angular-tailwind-ratp"
-    Set-Cookie:
-    CookieName="CookieValue;"
-    SameSite="Lax;"
-  />
+  <link rel="prefetch" as="document" src="https://github.com/AndrewJBateman/angular-tailwind-ratp" />
 </head>
-<div class="min-h-screen min-w-screen ratp-green">
+<section class="min-h-screen min-w-screen sncf-blue">
   <div class="flex justify-center w-full h-screen pt-10 mx-auto">
     <div class="max-w-xs">
-      <div class="info-card">
-        <div class="p-2 pt-5 pb-0 photo-wrapper">
-          <img
-            class="w-40 h-40 mx-auto rounded-full"
-            width="40px"
-            height="40px"
-            src="../../../assets/svgs/bus.svg"
-            alt="Image of metro"
-          />
-        </div>
+      <article class="info-card">
+        <figure class="p-2 pt-5 pb-0 photo-wrapper">
+          <img class="w-40 h-40 mx-auto rounded-full" src="../../../assets/svgs/bus.svg"
+            alt="Image of a bus traveling on a city street" />
+        </figure>
 
         <div class="p-2">
-          <h4
-            class="pb-1 text-xl font-medium leading-8 text-center text-blue-900"
-          >
+          <h4 class="pb-1 text-xl font-medium leading-8 text-center text-blue-900">
             SNCF API
           </h4>
           <div class="px-2 text-xs text-left text-gray-600">
             <p class="pb-2">
-              <span class="font-bold text-blue-900"
-                >Les données sur les commerces de proximité</span
-              >
+              <span class="font-bold text-blue-900">Les données sur les commerces de proximité</span>
               sont obtenues à partir d'une recherche par code postal de l'API
               publique RATP. Ces commerces de proximité (librairies, points
               presse, débitants de tabac...) sont à la disposition des voyageurs
@@ -42,9 +31,7 @@
               Mois et Semaine ainsi que des passes Navigo Découverte.
             </p>
             <p>
-              <span class="font-bold text-blue-900"
-                >Les données de la page de Contact</span
-              >
+              <span class="font-bold text-blue-900">Les données de la page de Contact</span>
               sont extraites de l'API Github.
             </p>
           </div>
@@ -72,16 +59,12 @@
           </table>
 
           <div class="my-2 text-center">
-            <a
-              class="text-xs italic font-medium text-indigo-600 hover:underline hover:text-indigo-800"
-              href="https://github.com/AndrewJBateman/angular-tailwind-ratp"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Voir le repo Github</a
-            >
+            <a class="text-xs italic font-medium text-indigo-600 hover:underline hover:text-indigo-800"
+              href="https://github.com/AndrewJBateman/angular-tailwind-ratp" target="_blank" rel="noopener noreferrer"
+              aria-label="Voir le repo Github">Voir le repo Github</a>
           </div>
         </div>
-      </div>
+      </article>
     </div>
   </div>
-</div>
+</section>

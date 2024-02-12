@@ -1,3 +1,14 @@
+/**
+ * StationService class.
+ *
+ * This class extends the ApiService class and provides a method for searching for a list
+ * of geographical objects within the coverage of fr-idf (Ile de France).
+ *
+ * @param {string} stationName - The name of the station to search for.
+ * @param {number} count - The number of search results to retrieve.
+ * @returns {Observable<SncfResponse[]>} - An observable that emits an array of SncfResponse
+ * objects.
+ */
 import { take, catchError, toArray, tap } from "rxjs/operators";
 import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";

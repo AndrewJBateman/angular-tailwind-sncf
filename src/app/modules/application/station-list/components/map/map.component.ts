@@ -3,24 +3,25 @@ import { AfterViewInit, Component, Input, OnInit } from "@angular/core";
 import * as L from "leaflet";
 import "leaflet.markercluster";
 import { MatDialog } from "@angular/material/dialog";
-
-import { StationDialogComponent } from "../station-dialog/station-dialog.component";
 import { MatIcon } from "@angular/material/icon";
 import { MatTooltip } from "@angular/material/tooltip";
 import { LeafletMarkerClusterModule } from "@asymmetrik/ngx-leaflet-markercluster";
 import { LeafletModule } from "@asymmetrik/ngx-leaflet";
 
+import { StationDialogComponent } from "../station-dialog/station-dialog.component";
+import { Place } from "../../models/sncf";
+
 @Component({
-    selector: "app-map",
-    templateUrl: "./map.component.html",
-    styleUrls: ['./map.component.css'],
-    standalone: true,
-    imports: [LeafletModule, LeafletMarkerClusterModule, MatTooltip, MatIcon]
+  selector: "app-map",
+  templateUrl: "./map.component.html",
+  styleUrls: ["./map.component.css"],
+  standalone: true,
+  imports: [LeafletModule, LeafletMarkerClusterModule, MatTooltip, MatIcon],
 })
 export class MapComponent implements OnInit {
-
+  private dialog = inject(MatDialog);
   // input array from parent station-list component
-  @Input() stations: any;
+  @Input() stations: Place[];
 
   // initialise map
   map: L.Map | undefined;
@@ -72,16 +73,14 @@ export class MapComponent implements OnInit {
     spiderfyOnMaxZoom: false,
   };
 
-  constructor(private dialog: MatDialog) {}
+  icon = L.icon({
+    iconSize: [25, 41],
+    iconAnchor: [13, 41],
+    iconUrl: "assets/icons/marker-icon.png",
+    shadowUrl: "assets/icons/marker-shadow.png",
+  });
 
   ngOnInit(): void {
-    const icon = L.icon({
-      iconSize: [25, 41],
-      iconAnchor: [13, 41],
-      iconUrl: "assets/icons/marker-icon.png",
-      shadowUrl: "assets/icons/marker-shadow.png",
-    });
-    console.log('this stations in map', this.stations);
     this.stations.map((item: any) => {
       const markerText: string = `<br><span>Name: <span class="text-blue-900">${item.name}</b></span></span>`;
       // + (item.fields.comp_loc
@@ -92,23 +91,22 @@ export class MapComponent implements OnInit {
 
       this.markerClusterData.push(
         L.marker([item.stop_area.coord.lat, item.stop_area.coord.lon], {
-          icon: icon,
+          icon: this.icon,
         }).bindPopup(markerText),
       );
     });
-    console.log("markerClusterData: ", this.markerClusterData);
   }
   onMapReady(map: L.Map) {
-    map = map;
+    this.map = map;
     this.center = L.latLng(48.864716, 2.349014);
   }
 
   zoomIn(): void {
-    this.zoom = this.zoom >= this.zoomMax ? this.zoomMax : this.zoom + 1;
+    this.zoom = Math.min(this.zoom + 1, this.zoomMax);
   }
 
   zoomOut(): void {
-    this.zoom = this.zoom <= this.zoomMin ? this.zoomMin : this.zoom - 1;
+    this.zoom = Math.max(this.zoom - 1, this.zoomMin);
   }
 
   nextLayer(): void {
