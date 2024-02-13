@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from "@angular/core";
+import { AfterViewInit, Component, Input, OnInit, inject } from "@angular/core";
 
 import * as L from "leaflet";
 import "leaflet.markercluster";
