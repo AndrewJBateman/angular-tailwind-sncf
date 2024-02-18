@@ -1,6 +1,12 @@
-import { Component, OnInit, OnDestroy, ViewChild, SecurityContext } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  SecurityContext,
+} from "@angular/core";
 import { NgForm, FormsModule } from "@angular/forms";
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer } from "@angular/platform-browser";
 import { take, toArray, catchError } from "rxjs/operators";
 import { Observable, Subscription } from "rxjs";
 
@@ -43,9 +49,12 @@ export class StationListComponent implements OnInit, OnDestroy {
   lonAverage: number = 0;
   stationCount = 50;
   loading: boolean = false;
-  sanitizedValue: string = '';
+  sanitizedValue: string = "";
 
-  constructor(private stationService: StationService, private sanitizer: DomSanitizer) {}
+  constructor(
+    private stationService: StationService,
+    private sanitizer: DomSanitizer,
+  ) {}
 
   ngOnInit(): void {}
 
@@ -61,18 +70,15 @@ export class StationListComponent implements OnInit, OnDestroy {
       this.subscription = this.stationService
         .apiStationSearch(searchName, this.stationCount)
         .subscribe((data: SncfResponse[]) => (this.stations = data[0].places));
-        this.loading = false; // Set loading state to false after data is fetched
+      this.loading = false; // Set loading state to false after data is fetched
     }
   }
 
   sanitizeInput(input: string): string {
-    console.log('input: ', input)
-    const sanitizedValue = this.sanitizer.sanitize(
-      SecurityContext.HTML,
-      input
-    );
-    console.log('sanitised: ', sanitizedValue)
-    return this.sanitizedValue = sanitizedValue ? sanitizedValue.toString() : '';
+    const sanitizedValue = this.sanitizer.sanitize(SecurityContext.HTML, input);
+    return (this.sanitizedValue = sanitizedValue
+      ? sanitizedValue.toString()
+      : "");
   }
 
   ngOnDestroy(): void {
