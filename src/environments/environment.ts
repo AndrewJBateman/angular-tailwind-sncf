@@ -5,7 +5,8 @@
 export const environment = {
   baseUrl: 'http://localhost:4200',
   production: false,
-  API_TOKEN: 'f79a64d7-1dbf-4537-84e1-bdcafa683258',
+  NAVITIA_API_TOKEN: 'YOUR TOKEN HERE',
+  GITHUB_BASE_URL: 'https://api.github.com/users/',
   application: {
     name: 'RENFE Info.',
   },

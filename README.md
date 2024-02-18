@@ -30,7 +30,6 @@
 * [Transloco](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular used to enable user to switch between English, Spanish and French. VERSION 4 ONLY - not v5 or v6 or nothing works :-(
 * About and Contact pages give more information on app using Tailwind CSS cards
 * To build for production Tailwind’s purge option is used to tree-shake unused styles and optimize final build size.
-* [rxjs take(1) operater](https://advancedweb.hu/rxjs-the-differences-between-first-take-1-and-single/) used to take first element from the SNCF & Github observable streams then close them, so unsubscribing is not necessary.
 * The Github API does not require an API key for a basic user profile search.
 * The Navitia API does require an API key. It is a Hypermedia As The Engine Of Application State (HATEOAS) API that returns JSON formatted results. Using [places search](https://doc.navitia.io/#places)
 * Angular standalone components used to reduce amount of code and complexity.
@@ -45,7 +44,7 @@
 * [Angular async pipes](https://angular.io/api/common/AsyncPipe) used with asynchronous Observable objects
 * [Reactive Extensions Library for Javascript rxjs v7](https://rxjs.dev/)
 * [Leaflet v1](https://leafletjs.com/) open-source JavaScript library for mobile-friendly interactive maps
-* [@ngneat/transloco v4](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular. VERSION 4 ONLY. DO NOT UPDATE.
+* [@ngneat/transloco v4](https://ngneat.github.io/transloco/) internationalization (i18n) library for Angular. VERSION 4 ONLY. DO NOT UPDATE OR A LOT OF RECONFIGURATION IS REQUIRED.
 * [Tailwindcss v3](https://tailwindcss.com/) CSS framework
 * [http-server](https://www.npmjs.com/package/http-server) command-line http server to view the PWA
 * [Netlify CLI](https://www.npmjs.com/package/netlify-cli) to deploy app on Netlify
@@ -66,7 +65,7 @@
 
 ## :computer: Code Examples
 
-* function from `station-list.module.ts` to return a list of stations from a user input string
+* function from `station-list.component.ts` to return a list of stations from a user input string
 
 ```typescript
   // search for stations matching user search input
@@ -75,28 +74,26 @@
     if (this.stations) {
       this.stations = [];
     }
-    let searchName = stationSearch.form.value.stationName
+    let searchName = this.sanitizeInput(stationSearch.form.value.stationName);
     if (searchName) {
-      this.stationService
-        .apiStationSearch(
-          searchName,
-          this.stationCount,
-        )
-        .pipe(take(this.stationCount), toArray())
-        .subscribe(data => (this.stations = data[0].places));
+      this.loading = true; // Set loading state to true
+      this.subscription = this.stationService
+        .apiStationSearch(searchName, this.stationCount)
+        .subscribe((data: SncfResponse[]) => (this.stations = data[0].places));
+      this.loading = false; // Set loading state to false after data is fetched
     }
   }
 ```
 
 ## :cool: Features
 
-* Lazy-loading of About and Contact pages
+* standalone components used to reduce boiler-plate code
 * Tailwind build for production CSS purge results in a very small styles bundle (about tba kB)
 
 ## :clipboard: Status & To-Do List
 
-* Status: In work
-* To-Do: Add language dropdown menu active CSS. Clear map for new search. Make it an SSR. Deploy.
+* Status: Working.
+* To-Do: Add error-reporting service, language dropdown menu active CSS. Clear map for new search. Make it an SSR. Deploy.
 * Optional: Convert to graphQL
 
 ## :clap: Inspiration
@@ -117,4 +114,4 @@
 
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://github.com/AndrewJBateman), email: `gomezbateman@yahoo.com`
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: `gomezbateman@gmail.com`
